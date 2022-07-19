@@ -1,0 +1,555 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>924</width>
+    <height>696</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout_3">
+   <item row="0" column="0">
+    <widget class="QLabel" name="label">
+     <property name="text">
+      <string>Timespan (seconds):</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="3">
+    <widget class="QLabel" name="label_2">
+     <property name="text">
+      <string>Cryomodule:</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="2">
+    <spacer name="horizontalSpacer">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>40</width>
+       <height>20</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item row="0" column="1">
+    <widget class="QSpinBox" name="timespan_spinbox">
+     <property name="minimum">
+      <number>1</number>
+     </property>
+     <property name="maximum">
+      <number>10000</number>
+     </property>
+     <property name="singleStep">
+      <number>60</number>
+     </property>
+     <property name="value">
+      <number>600</number>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="4">
+    <widget class="QComboBox" name="cryo_combobox"/>
+   </item>
+   <item row="0" column="6">
+    <widget class="QLabel" name="label_3">
+     <property name="text">
+      <string>Decarad:</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="0" colspan="9">
+    <widget class="QSplitter" name="splitter">
+     <property name="toolTip">
+      <string>Note that the readouts are collapsible</string>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <widget class="QGroupBox" name="groupBox">
+      <property name="title">
+       <string/>
+      </property>
+      <layout class="QGridLayout" name="gridLayout">
+       <item row="3" column="1">
+        <widget class="PyDMTimePlot" name="plot_decarad">
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="showXGrid">
+          <bool>true</bool>
+         </property>
+         <property name="showYGrid">
+          <bool>true</bool>
+         </property>
+         <property name="yAxes">
+          <stringlist/>
+         </property>
+         <property name="title" stdset="0">
+          <string>Decarad</string>
+         </property>
+         <property name="showLegend">
+          <bool>true</bool>
+         </property>
+         <property name="maxRedrawRate" stdset="0">
+          <number>1</number>
+         </property>
+         <property name="curves">
+          <stringlist/>
+         </property>
+         <property name="updatesAsynchronously">
+          <bool>true</bool>
+         </property>
+         <property name="updateMode" stdset="0">
+          <enum>PyDMTimePlot::AtFixedRate</enum>
+         </property>
+         <property name="timeSpan">
+          <double>600.000000000000000</double>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="PyDMTimePlot" name="plot_homus_temp">
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="showXGrid">
+          <bool>true</bool>
+         </property>
+         <property name="showYGrid">
+          <bool>true</bool>
+         </property>
+         <property name="yAxes">
+          <stringlist/>
+         </property>
+         <property name="title" stdset="0">
+          <string>Upstream HOM temperatures</string>
+         </property>
+         <property name="showLegend">
+          <bool>true</bool>
+         </property>
+         <property name="curves">
+          <stringlist/>
+         </property>
+         <property name="updatesAsynchronously">
+          <bool>true</bool>
+         </property>
+         <property name="updateMode" stdset="0">
+          <enum>PyDMTimePlot::AtFixedRate</enum>
+         </property>
+         <property name="timeSpan">
+          <double>600.000000000000000</double>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="PyDMTimePlot" name="plot_steppertemps">
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="showXGrid">
+          <bool>true</bool>
+         </property>
+         <property name="showYGrid">
+          <bool>true</bool>
+         </property>
+         <property name="title" stdset="0">
+          <string>Stepper temperatures</string>
+         </property>
+         <property name="showLegend">
+          <bool>true</bool>
+         </property>
+         <property name="updatesAsynchronously">
+          <bool>true</bool>
+         </property>
+         <property name="updateMode" stdset="0">
+          <enum>PyDMTimePlot::AtFixedRate</enum>
+         </property>
+         <property name="timeSpan">
+          <double>600.000000000000000</double>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="2">
+        <widget class="PyDMTimePlot" name="plot_couplerbot_temp">
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="showXGrid">
+          <bool>true</bool>
+         </property>
+         <property name="showYGrid">
+          <bool>true</bool>
+         </property>
+         <property name="title" stdset="0">
+          <string>Coupler bottom temperatures</string>
+         </property>
+         <property name="showLegend">
+          <bool>true</bool>
+         </property>
+         <property name="updatesAsynchronously">
+          <bool>true</bool>
+         </property>
+         <property name="updateMode" stdset="0">
+          <enum>PyDMTimePlot::AtFixedRate</enum>
+         </property>
+         <property name="timeSpan">
+          <double>600.000000000000000</double>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <widget class="PyDMTimePlot" name="plot_cryosignals">
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="showXGrid">
+          <bool>true</bool>
+         </property>
+         <property name="showYGrid">
+          <bool>true</bool>
+         </property>
+         <property name="title" stdset="0">
+          <string>Cryo signals</string>
+         </property>
+         <property name="showLegend">
+          <bool>true</bool>
+         </property>
+         <property name="updatesAsynchronously">
+          <bool>true</bool>
+         </property>
+         <property name="updateMode" stdset="0">
+          <enum>PyDMTimePlot::AtFixedRate</enum>
+         </property>
+         <property name="timeSpan">
+          <double>600.000000000000000</double>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="PyDMTimePlot" name="plot_cmvacuum">
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="showXGrid">
+          <bool>true</bool>
+         </property>
+         <property name="showYGrid">
+          <bool>true</bool>
+         </property>
+         <property name="yAxes">
+          <stringlist>
+           <string>{&quot;name&quot;: &quot;!96&quot;, &quot;orientation&quot;: &quot;left&quot;, &quot;label&quot;: null, &quot;minRange&quot;: -1.0, &quot;maxRange&quot;: 1.0, &quot;autoRange&quot;: true, &quot;logMode&quot;: null}</string>
+           <string>{&quot;name&quot;: &quot;x96&quot;, &quot;orientation&quot;: &quot;right&quot;, &quot;label&quot;: null, &quot;minRange&quot;: -1.0, &quot;maxRange&quot;: 1.0, &quot;autoRange&quot;: true, &quot;logMode&quot;: null}</string>
+          </stringlist>
+         </property>
+         <property name="title" stdset="0">
+          <string>Vacuum signals</string>
+         </property>
+         <property name="showLegend">
+          <bool>true</bool>
+         </property>
+         <property name="curves">
+          <stringlist/>
+         </property>
+         <property name="updatesAsynchronously">
+          <bool>true</bool>
+         </property>
+         <property name="updateMode" stdset="0">
+          <enum>PyDMTimePlot::AtFixedRate</enum>
+         </property>
+         <property name="timeSpan">
+          <double>600.000000000000000</double>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="2">
+        <widget class="PyDMTimePlot" name="plot_amps">
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="showXGrid">
+          <bool>true</bool>
+         </property>
+         <property name="showYGrid">
+          <bool>true</bool>
+         </property>
+         <property name="title" stdset="0">
+          <string>Amplitudes</string>
+         </property>
+         <property name="showLegend">
+          <bool>true</bool>
+         </property>
+         <property name="updatesAsynchronously">
+          <bool>true</bool>
+         </property>
+         <property name="updateMode" stdset="0">
+          <enum>PyDMTimePlot::AtFixedRate</enum>
+         </property>
+         <property name="timeSpan">
+          <double>600.000000000000000</double>
+         </property>
+         <property name="autoRangeY">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="PyDMTimePlot" name="plot_homds_temp">
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="showXGrid">
+          <bool>true</bool>
+         </property>
+         <property name="showYGrid">
+          <bool>true</bool>
+         </property>
+         <property name="yAxes">
+          <stringlist/>
+         </property>
+         <property name="title" stdset="0">
+          <string>Downstream HOM temperatures</string>
+         </property>
+         <property name="showLegend">
+          <bool>true</bool>
+         </property>
+         <property name="curves">
+          <stringlist/>
+         </property>
+         <property name="updatesAsynchronously">
+          <bool>true</bool>
+         </property>
+         <property name="updateMode" stdset="0">
+          <enum>PyDMTimePlot::AtFixedRate</enum>
+         </property>
+         <property name="timeSpan">
+          <double>600.000000000000000</double>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="2">
+        <widget class="PyDMTimePlot" name="plot_couplertop_temp">
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="showXGrid">
+          <bool>true</bool>
+         </property>
+         <property name="showYGrid">
+          <bool>true</bool>
+         </property>
+         <property name="title" stdset="0">
+          <string>Coupler top temperatures</string>
+         </property>
+         <property name="showLegend">
+          <bool>true</bool>
+         </property>
+         <property name="updatesAsynchronously">
+          <bool>true</bool>
+         </property>
+         <property name="updateMode" stdset="0">
+          <enum>PyDMTimePlot::AtFixedRate</enum>
+         </property>
+         <property name="timeSpan">
+          <double>600.000000000000000</double>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QScrollArea" name="scrollArea">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>170</height>
+       </size>
+      </property>
+      <property name="widgetResizable">
+       <bool>true</bool>
+      </property>
+      <widget class="QWidget" name="scrollAreaWidgetContents_3">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>898</width>
+         <height>239</height>
+        </rect>
+       </property>
+       <layout class="QGridLayout" name="gridLayout_2">
+        <item row="0" column="1">
+         <widget class="QGroupBox" name="groupBox_2">
+          <property name="title">
+           <string>Upstream HOM temps</string>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_3">
+           <item>
+            <layout class="QFormLayout" name="up_hom_form"/>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="2" column="1">
+         <widget class="QGroupBox" name="groupBox_8">
+          <property name="title">
+           <string>Decarad</string>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_9">
+           <item>
+            <layout class="QFormLayout" name="decarad_form"/>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="0" column="2">
+         <widget class="QGroupBox" name="groupBox_3">
+          <property name="title">
+           <string>Coupler top temps</string>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_4">
+           <item>
+            <layout class="QFormLayout" name="coup_top_form"/>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QGroupBox" name="groupBox_6">
+          <property name="title">
+           <string>Downstream HOM temps</string>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_7">
+           <item>
+            <layout class="QFormLayout" name="down_hom_form"/>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="1" column="2">
+         <widget class="QGroupBox" name="groupBox_7">
+          <property name="title">
+           <string>Coupler bottom temps</string>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_8">
+           <item>
+            <layout class="QFormLayout" name="coup_bot_hom"/>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="2" column="0">
+         <widget class="QGroupBox" name="groupBox_4">
+          <property name="title">
+           <string>Cryo signals</string>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_5">
+           <item>
+            <layout class="QFormLayout" name="cryo_form"/>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="0" column="0">
+         <widget class="QGroupBox" name="groupBox_5">
+          <property name="title">
+           <string>Stepper temps</string>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_2">
+           <item>
+            <layout class="QFormLayout" name="stepper_form"/>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QGroupBox" name="groupBox_9">
+          <property name="title">
+           <string>Vacuum Signals</string>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_6">
+           <item>
+            <layout class="QFormLayout" name="vacuum_form"/>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="2" column="2">
+         <widget class="QGroupBox" name="groupBox_10">
+          <property name="title">
+           <string>Amplitudes</string>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_5">
+           <item row="0" column="0">
+            <layout class="QFormLayout" name="amp_form"/>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </widget>
+   </item>
+   <item row="0" column="8">
+    <widget class="QComboBox" name="decarad_combobox">
+     <item>
+      <property name="text">
+       <string>None</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>1</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>2</string>
+      </property>
+     </item>
+    </widget>
+   </item>
+   <item row="0" column="5">
+    <spacer name="horizontalSpacer_2">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>40</width>
+       <height>20</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>PyDMTimePlot</class>
+   <extends>QGraphicsView</extends>
+   <header>pydm.widgets.timeplot</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>
