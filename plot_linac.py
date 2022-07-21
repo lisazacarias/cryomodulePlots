@@ -96,10 +96,11 @@ class PlotCryomodule(Cryomodule):
             self.detune_pvs.append((cavity.detune_best_PV.pvname, None))
             self.amp_pvs.append((cavity.selAmplitudeActPV.pvname, None))
         
-        self.cryo_signal_PVs = [(self.dsLevelPV.pvname, None),
-                                (self.usLevelPV.pvname, None),
-                                (self.dsPressurePV.pvname, None),
-                                (self.jtValveRdbkPV.pvname, None)]
+        self.cryo_signal_PVs = [(self.dsLevelPV, None),
+                                (self.usLevelPV, None),
+                                (self.dsPressurePV, None),
+                                (self.jtValveReadbackPV, None),
+                                (self.heater_readback_pv, None)]
         
         self.vacuumPlotPairs = [(pv.pvname, "x96")
                                 for pv in self.linac.insulatingVacuumPVs]
