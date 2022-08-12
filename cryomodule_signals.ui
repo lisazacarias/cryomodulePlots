@@ -227,11 +227,23 @@
          <property name="showYGrid">
           <bool>true</bool>
          </property>
+         <property name="yAxes">
+          <stringlist>
+           <string>{&quot;name&quot;: &quot;jt&quot;, &quot;orientation&quot;: &quot;right&quot;, &quot;label&quot;: &quot;JT (%)&quot;, &quot;minRange&quot;: -1.0, &quot;maxRange&quot;: 1.0, &quot;autoRange&quot;: true, &quot;logMode&quot;: false}</string>
+           <string>{&quot;name&quot;: &quot;ds&quot;, &quot;orientation&quot;: &quot;right&quot;, &quot;label&quot;: &quot;DS Level (%)&quot;, &quot;minRange&quot;: -1.0, &quot;maxRange&quot;: 1.0, &quot;autoRange&quot;: true, &quot;logMode&quot;: false}</string>
+           <string>{&quot;name&quot;: &quot;us&quot;, &quot;orientation&quot;: &quot;right&quot;, &quot;label&quot;: &quot;US Level (%)&quot;, &quot;minRange&quot;: -1.0, &quot;maxRange&quot;: 1.0, &quot;autoRange&quot;: true, &quot;logMode&quot;: false}</string>
+           <string>{&quot;name&quot;: &quot;press&quot;, &quot;orientation&quot;: &quot;right&quot;, &quot;label&quot;: &quot;DS Pressure (mbar)&quot;, &quot;minRange&quot;: -1.0, &quot;maxRange&quot;: 1.0, &quot;autoRange&quot;: true, &quot;logMode&quot;: false}</string>
+           <string>{&quot;name&quot;: &quot;heat&quot;, &quot;orientation&quot;: &quot;right&quot;, &quot;label&quot;: &quot;Heater (W)&quot;, &quot;minRange&quot;: -1.0, &quot;maxRange&quot;: 1.0, &quot;autoRange&quot;: true, &quot;logMode&quot;: false}</string>
+          </stringlist>
+         </property>
          <property name="title" stdset="0">
           <string>Cryo signals</string>
          </property>
          <property name="showLegend">
           <bool>true</bool>
+         </property>
+         <property name="curves">
+          <stringlist/>
          </property>
          <property name="updatesAsynchronously">
           <bool>true</bool>
