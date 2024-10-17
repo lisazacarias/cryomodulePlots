@@ -68,7 +68,7 @@ class PlotCavity(Cavity):
                                     (self.hom_us_pv, None),
                                     (self.vessel_top_pv, None),
                                     (self.vessel_bot_pv, None),
-                                    (self.selAmplitudeActPV.pvname, None)]
+                                    (self.aact_pv, None)]
 
 
 class PlotCryomodule(Cryomodule):
@@ -89,8 +89,8 @@ class PlotCryomodule(Cryomodule):
             self.coupler_bot_pvs.append((cavity.coupler_bot_pv, None))
             self.hom_us_pvs.append((cavity.hom_us_pv, None))
             self.hom_ds_pvs.append((cavity.hom_ds_pv, None))
-            self.detune_pvs.append((cavity.detune_best_pv.pvname, None))
-            self.amp_pvs.append((cavity.aact_pv.pvname, None))
+            self.detune_pvs.append((cavity.detune_best_pv, None))
+            self.amp_pvs.append((cavity.aact_pv, None))
         
         self.cryo_signal_PVs = [(self.ds_level_pv, "ds"),
                                 (self.us_level_pv, "us"),
@@ -98,10 +98,10 @@ class PlotCryomodule(Cryomodule):
                                 (self.jt_valve_readback_pv, "jt"),
                                 (self.heater_readback_pv, "heat")]
         
-        self.vacuumPlotPairs = [(pv.pvname, "x96")
-                                for pv in self.linac.insulatingVacuumPVs]
-        self.vacuumPlotPairs += [(pv.pvname, "!96") for pv in self.linac.beamlineVacuumPVs]
-        self.vacuumPlotPairs += [(pv.pvname, "!96") for pv in self.couplerVacuumPVs]
+        self.vacuumPlotPairs = [(pv, "x96")
+                                for pv in self.linac.insulating_vacuum_pvs]
+        self.vacuumPlotPairs += [(pv, "!96") for pv in self.linac.beamline_vacuum_pvs]
+        self.vacuumPlotPairs += [(pv, "!96") for pv in self.coupler_vacuum_pvs]
 
 
 PLOT_CRYO_MACHINE = Machine(cavity_class=PlotCavity, cryomodule_class=PlotCryomodule)
