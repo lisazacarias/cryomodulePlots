@@ -3,9 +3,8 @@ import warnings
 from os import path
 from typing import Optional
 
-from lcls_tools.common.pydm_tools.pydmPlotUtil import (TimePlotParams,
-                                                       TimePlotUpdater)
-from lcls_tools.superconducting.scLinac import ALL_CRYOMODULES
+from lcls_tools.common.frontend.plotting.util import TimePlotUpdater, TimePlotParams
+from lcls_tools.superconducting.sc_linac_utils import ALL_CRYOMODULES
 from pydm import Display
 
 import plot_utils
