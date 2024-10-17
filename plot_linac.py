@@ -54,8 +54,8 @@ class PlotCavity(Cavity):
     def __init__(self, cavity_num, rack_object):
         super().__init__(cavity_num=cavity_num, rack_object=rack_object)
         
-        self.coupler_top_pv = self.pvPrefix + "CPLRTEMP1"
-        self.coupler_bot_pv = self.pvPrefix + "CPLRTEMP2"
+        self.coupler_top_pv = self.pv_prefix + "CPLRTEMP1"
+        self.coupler_bot_pv = self.pv_prefix + "CPLRTEMP2"
         self.hom_us_pv = self.ctePrefix + "18:UH:TEMP"
         self.hom_ds_pv = self.ctePrefix + "20:DH:TEMP"
         self.vessel_top_pv = self.ctePrefix + "14:VT:TEMP"
