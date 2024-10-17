@@ -8,7 +8,7 @@ from lcls_tools.superconducting.sc_linac_utils import ALL_CRYOMODULES
 from pydm import Display
 
 import plot_utils
-from plot_linac import Decarad, PLOT_CRYO_DICT, PlotCryomodule
+from plot_linac import Decarad, PLOT_CRYO_MACHINE, PlotCryomodule
 
 warnings.filterwarnings("ignore", category=RuntimeWarning)
 
@@ -41,7 +41,7 @@ class CryomodulePlots(Display):
     
     def update_cryomodule(self):
         try:
-            self.current_cm = PLOT_CRYO_DICT[self.ui.cryo_combobox.currentText()]
+            self.current_cm = PLOT_CRYO_MACHINE.cryomodules[self.ui.cryo_combobox.currentText()]
             
             timeplot_update_map = {plot_utils.STEPPERTEMP_PLOT_KEY: self.current_cm.stepper_temp_pvs,
                                    plot_utils.HOMDS_PLOT_KEY      : self.current_cm.hom_ds_pvs,

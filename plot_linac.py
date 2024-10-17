@@ -1,7 +1,9 @@
 from typing import Dict, List, Tuple
 
 from epics import caget
-from lcls_tools.superconducting.scLinac import Cavity, CryoDict, Cryomodule, Magnet, Piezo, Rack, SSA, StepperTuner
+from lcls_tools.superconducting.sc_cavity import Cavity
+from lcls_tools.superconducting.sc_cryomodule import Cryomodule
+from lcls_tools.superconducting.sc_linac import Machine
 
 from plot_utils import DECARAD_BACKGROUND_READING
 
@@ -49,9 +51,8 @@ class Decarad:
 
 class PlotCavity(Cavity):
     
-    def __init__(self, cavityNum, rackObject, ssaClass=SSA,
-                 stepperClass=StepperTuner, piezoClass=Piezo):
-        super().__init__(cavityNum, rackObject)
+    def __init__(self, cavity_num, rack_object):
+        super().__init__(cavity_num=cavity_num, rack_object=rack_object)
         
         self.coupler_top_pv = self.pvPrefix + "CPLRTEMP1"
         self.coupler_bot_pv = self.pvPrefix + "CPLRTEMP2"
@@ -71,13 +72,8 @@ class PlotCavity(Cavity):
 
 
 class PlotCryomodule(Cryomodule):
-    def __init__(self, cryoName, linacObject, isHarmonicLinearizer,
-                 cavityClass=PlotCavity, magnetClass=Magnet,
-                 rackClass=Rack, ssaClass=SSA,
-                 stepperClass=StepperTuner, piezoClass=Piezo):
-        super().__init__(cryoName=cryoName, linacObject=linacObject,
-                         cavityClass=PlotCavity,
-                         isHarmonicLinearizer=isHarmonicLinearizer)
+    def __init__(self, cryo_name, linac_object):
+        super().__init__(cryo_name=cryo_name, linac_object=linac_object)
         
         self.stepper_temp_pvs = []
         self.coupler_top_pvs = []
@@ -93,13 +89,13 @@ class PlotCryomodule(Cryomodule):
             self.coupler_bot_pvs.append((cavity.coupler_bot_pv, None))
             self.hom_us_pvs.append((cavity.hom_us_pv, None))
             self.hom_ds_pvs.append((cavity.hom_ds_pv, None))
-            self.detune_pvs.append((cavity.detune_best_PV.pvname, None))
-            self.amp_pvs.append((cavity.selAmplitudeActPV.pvname, None))
+            self.detune_pvs.append((cavity.detune_best_pv.pvname, None))
+            self.amp_pvs.append((cavity.aact_pv.pvname, None))
         
-        self.cryo_signal_PVs = [(self.dsLevelPV, "ds"),
-                                (self.usLevelPV, "us"),
-                                (self.dsPressurePV, "press"),
-                                (self.jtValveReadbackPV, "jt"),
+        self.cryo_signal_PVs = [(self.ds_level_pv, "ds"),
+                                (self.us_level_pv, "us"),
+                                (self.ds_pressure_pv, "press"),
+                                (self.jt_valve_readback_pv, "jt"),
                                 (self.heater_readback_pv, "heat")]
         
         self.vacuumPlotPairs = [(pv.pvname, "x96")
@@ -108,4 +104,4 @@ class PlotCryomodule(Cryomodule):
         self.vacuumPlotPairs += [(pv.pvname, "!96") for pv in self.couplerVacuumPVs]
 
 
-PLOT_CRYO_DICT = CryoDict(cavityClass=PlotCavity, cryomoduleClass=PlotCryomodule)
+PLOT_CRYO_MACHINE = Machine(cavity_class=PlotCavity, cryomodule_class=PlotCryomodule)
